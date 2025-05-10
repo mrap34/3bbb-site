@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-container" style="display: flex; flex-direction: column; align-items: center; padding-top: 60px;">
+    <h1 class="hero-title">Create Your 3bbb's Account</h1>
+    <p class="hero-description" style="text-align: center;">Join our community of smart local shoppers and business owners</p>
+
+    <form id="signupForm" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
+      <input type="text" id="newName" placeholder="Your Name" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <input type="email" id="newEmail" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <input type="password" id="newPassword" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <button type="submit" class="cta-button">Register</button>
+    </form>
+
+    <a href="login.html" class="cta-button" style="margin-top: 20px;">← Back to Login</a>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('newName').value.trim();
+      const email = document.getElementById('newEmail').value.trim();
+      const password = document.getElementById('newPassword').value.trim();
+
+      if (name && email && password) {
+        // Simulate storing registered user
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password);
+
+        alert(`Account created for ${name}!`);
+        window.location.href = 'index.html';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>

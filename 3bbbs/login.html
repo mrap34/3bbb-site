@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-container" style="display: flex; flex-direction: column; align-items: center; padding-top: 60px;">
+    <h1 class="hero-title">Login to 3bbb's</h1>
+    <p class="hero-description" style="text-align: center;">Access your dashboard and tools</p>
+
+    <form id="loginForm" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
+      <input type="text" id="userName" placeholder="Name (e.g. 3bbb's)" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <input type="email" id="userEmail" placeholder="Email" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <input type="password" id="userPassword" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;" />
+      <button type="submit" class="cta-button">Login</button>
+      <a href="signup.html" class="cta-button" style="margin-top: 10px;">New here? Sign Up</a>
+    </form>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="cta-button" style="margin-top: 20px;">← Back to Home</a>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const password = document.getElementById('userPassword').value.trim();
+
+      if (name && email && password) {
+        // Save user info in localStorage
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        // Normally you'd hash the password or use tokens — this is just a placeholder
+        localStorage.setItem('userPassword', password);
+
+        alert(`Welcome, ${name}!`);
+        window.location.href = 'index.html';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>

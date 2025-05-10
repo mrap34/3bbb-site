@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ads | Owner Tools | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">3bbb's</div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit"> Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Social Media Ads</h1>
+    <p class="hero-description">
+      Promote your business easily through Instagram and Facebook using our built-in ad tools.
+    </p>
+  </section>
+
+  <!-- Ad Features -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Quick Campaign Setup</h3>
+      <p>Launch targeted ad campaigns in just minutes. No complicated tools or accounts needed.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Reach the Right Audience</h3>
+      <p>Choose your niche, location, and interests. We’ll help you get seen by the people who matter.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Budget-Friendly Options</h3>
+      <p>Start with as little as $5/day. You stay in control of how much you spend.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Live Results</h3>
+      <p>Track how your ads perform in real-time: views, clicks, and sales — all in one dashboard.</p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="owner.html" class="cta-button">← Back to Owner Page</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+   <!-- Search script -->
+   <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+  </script>
+</body>
+</html>

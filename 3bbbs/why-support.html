@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Support Small Businesses | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">3bbb's</div>
+      
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+      
+          <!-- Customer Side Submenu -->
+          <div class="nav-link customer-hover">
+            Customer Side
+            <div class="hover-submenu">
+              <a href="customer.html">Customer Main</a>
+              <a href="why-support.html">Why Support?</a>
+            </div>
+          </div>
+      
+          <!-- Owner Side Submenu -->
+          <div class="nav-link owner-hover">
+            Owner Side
+            <div class="hover-submenu">
+              <a href="owner.html">Owner Main</a>
+              <a href="collaboration.html">Collaboration</a>
+              <a href="ads.html">Ads</a>
+              <a href="commerce.html">Commerce</a>
+            </div>
+          </div>
+        </nav>
+      
+        <div class="nav-right">
+          <form id="searchForm" class="search-form">
+            <input type="text" id="searchInput" placeholder="Search business..." />
+            <button type="submit">Go</button>
+          </form>
+          <a href="login.html" class="login-button">Login / Sign Up</a>
+        </div>
+      </header>
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Why Supporting Small Businesses Matters</h1>
+    <p class="hero-description">
+      Every dollar you spend at a small business creates a ripple of positive impact.
+    </p>
+  </section>
+
+  <!-- SDG-Based Cards -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Decent Work & Economic Growth (SDG 8)</h3>
+      <p>
+        Small businesses are the backbone of local economies. Supporting them helps create jobs,
+        empower communities, and promote fair working conditions.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>Industry, Innovation & Infrastructure (SDG 9)</h3>
+      <p>
+        Small businesses fuel innovation. From creative startups to local makers,
+        these businesses bring new ideas and services to life, fostering vibrant industries.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>Reduced Inequalities (SDG 10)</h3>
+      <p>
+        Supporting diverse-owned and underrepresented small businesses helps close economic gaps,
+        bringing more voices and opportunities to the market.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>Sustainable Cities & Communities (SDG 11)</h3>
+      <p>
+        Local businesses help shape unique, vibrant, and resilient communities. They keep neighborhoods thriving,
+        diverse, and connected.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>Responsible Consumption & Production (SDG 12)</h3>
+      <p>
+        Many small businesses prioritize ethical sourcing, low-waste practices, and transparency,
+        offering consumers more sustainable choices.
+      </p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+  <!-- Search script -->
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+  </script>
+</body>
+</html>

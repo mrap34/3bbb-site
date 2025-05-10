@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bean & Brew Cafe | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar with search -->
+  <header class="navbar">
+    <div class="logo">3bbb's</div>
+  
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+  
+      <!-- Customer Side Submenu -->
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+  
+      <!-- Owner Side Submenu -->
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit">Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+  <!-- Business Profile -->
+  <section class="business-profile">
+    <h1 class="profile-title">Bean & Brew Cafe</h1>
+    <img src="beanandbrew.webp" alt="Bean & Brew Cafe" class="profile-image" />
+    <p class="profile-description">
+      Nestled in the heart of West Vancouver, Bean & Brew Cafe serves ethically sourced coffee, fresh pastries, and cozy vibes.
+      Loved by locals and visitors alike, this small business is all about sustainability, quality, and community.
+    </p>
+
+    <h2>What We Offer</h2>
+    <ul class="profile-services">
+      <li>Freshly brewed organic coffee</li>
+      <li>Handmade pastries & vegan treats</li>
+      <li>Locally sourced ingredients</li>
+      <li>Indoor & outdoor seating</li>
+      <li>Free Wi-Fi and work-friendly space</li>
+    </ul>
+
+    <h2>Contact & Location</h2>
+    <p>
+      📍 123 Main St, West Vancouver, BC  
+      <br />
+      📞 (604) 123-4567  
+      <br />
+      📧 beanbrew@cafemail.com
+    </p>
+
+    <a href="index.html" class="cta-button" style="margin-top: 20px;">← Back to Home</a>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+  <!-- Search engine script -->
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+  </script>
+</body>
+</html>

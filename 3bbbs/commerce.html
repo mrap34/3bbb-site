@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commerce | Owner Tools | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">3bbb's</div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit">Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Global Commerce</h1>
+    <p class="hero-description">
+      Manage products, reach global markets, and handle transactions — all from your 3bbb's dashboard.
+    </p>
+  </section>
+
+  <!-- Commerce Features -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Product Listings</h3>
+      <p>Add your items to your business profile so they can be discovered by customers locally and worldwide.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Global Orders</h3>
+      <p>Offer shipping options, auto-calculate international delivery rates, and accept secure global payments.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Inventory Management</h3>
+      <p>Keep track of what’s in stock and what’s low — all synced across your physical and digital stores.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Supplier Access</h3>
+      <p>Use our built-in directory to source ethical and affordable suppliers from around the world.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Tax & Compliance Help</h3>
+      <p>Automatic tax calculations and simple export rule checks help you stay compliant and focused on growth.</p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="owner.html" class="cta-button">← Back to Owner Page</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+</script>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+  
+      // Simulate known business pages
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+  
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+
+  </script>
+  </body>
+</html

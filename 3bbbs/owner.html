@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Owner Side | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+   <!-- Navbar with search -->
+   <header class="navbar">
+    <div class="logo">3bbb's</div>
+  
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+  
+      <!-- Customer Side Submenu -->
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+  
+      <!-- Owner Side Submenu -->
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit">Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Welcome, Business Owners!</h1>
+    <p class="hero-description">Discover the tools, exposure, and community support that help your business thrive.</p>
+  </section>
+
+  <!-- Best-Selling Businesses -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Best-Selling Businesses</h3>
+      <ul>
+        <li><strong>Bean & Brew Cafe</strong> – Organic coffee & cozy vibes</li>
+        <li><strong>EcoFashion Collective</strong> – Sustainable fashion line</li>
+        <li><strong>Organic Roots Grocery</strong> – Local & ethical groceries</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- What We Offer: Owner Tools & Features -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Business Collaboration</h3>
+      <p>Connect with other small businesses to form partnerships, co-launch projects, or even merge for expansion.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Social Media Advertising</h3>
+      <p>Run quick and targeted ad campaigns on platforms like Instagram and Facebook using simplified in-app tools.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Global Commerce</h3>
+      <p>Sell your products across borders, manage inventory, and access international trade partners and tools.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Analytics & Insights</h3>
+      <p>Track how your business is performing using visitor data, engagement metrics, and location-based insights.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Investor Discovery</h3>
+      <p>Get discovered by investors who align with your values and are looking to support innovative small businesses.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>SDG Impact Alignment</h3>
+      <p>Join a mission-driven marketplace. Every action on our platform contributes to UN Sustainable Development Goals.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Brand Storytelling</h3>
+      <p>Craft your unique narrative and stand out through a personalized business profile and storytelling features.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Supplier Directory</h3>
+      <p>Find global, ethical suppliers to strengthen your supply chain while staying true to sustainability goals.</p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+  <!-- Search script -->
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+
+  </script>
+</body>
+</html>

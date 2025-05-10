@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collaboration | Owner Tools | 3bbb's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">3bbb's</div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit">Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Business Collaboration</h1>
+    <p class="hero-description">
+      Grow together by teaming up with businesses that share your values, customers, or vision.
+    </p>
+  </section>
+
+  <!-- Collaboration Options -->
+  <section class="sections-grid">
+    <div class="info-card">
+      <h3>Joint Marketing</h3>
+      <p>Promote your brand alongside other small businesses through email campaigns, bundles, or events.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Shared Resources</h3>
+      <p>Split costs or logistics like warehouse space, shipping services, or local storefronts.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Cross-Promotion</h3>
+      <p>Reach each other’s audiences on social media through shoutouts, features, or giveaways.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Product Collaboration</h3>
+      <p>Design and sell products together — a café could collab with a pottery studio to create branded mugs!</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Skill Sharing</h3>
+      <p>Offer each other services — like a graphic designer helping a local grocer in exchange for promotion.</p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="owner.html" class="cta-button">← Back to Owner Page</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+  <!-- Search engine script -->
+</script>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+  
+      // Simulate known business pages
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+  
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+
+  </script>
+  </body>
+</html

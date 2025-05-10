@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3bbb's - Customer Side</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <!-- Navbar with hoverable detail -->
+  <header class="navbar">
+    <div class="logo">3bbb's</div>
+  
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+  
+      <!-- Customer Side Submenu -->
+      <div class="nav-link customer-hover">
+        Customer Side
+        <div class="hover-submenu">
+          <a href="customer.html">Customer Main</a>
+          <a href="why-support.html">Why Support?</a>
+        </div>
+      </div>
+  
+      <!-- Owner Side Submenu -->
+      <div class="nav-link owner-hover">
+        Owner Side
+        <div class="hover-submenu">
+          <a href="owner.html">Owner Main</a>
+          <a href="collaboration.html">Collaboration</a>
+          <a href="ads.html">Ads</a>
+          <a href="commerce.html">Commerce</a>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="nav-right">
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="Search business..." />
+        <button type="submit">Go</button>
+      </form>
+      <a href="login.html" class="login-button">Login / Sign Up</a>
+    </div>
+  </header>
+  
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Welcome, Supporters!</h1>
+    <p class="hero-description">Explore local businesses and authenticity winners to support today.</p>
+  </section>
+
+  <!-- Business Lists -->
+  <section class="support-grid">
+    <div class="info-card">
+      <h3>Businesses to Support</h3>
+      <ul>
+        <li>Bean & Brew Cafe</li>
+        <li>WestVan Home Decor</li>
+        <li>North Shore Wellness Co.</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h3>Authenticity Winners</h3>
+      <ul>
+        <li>Organic Roots Grocery</li>
+        <li>West Vancouver Pottery Studio</li>
+        <li>EcoFashion Collective</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="map-section">
+    <h2 class="section-title">Explore Businesses Nearby</h2>
+    <button id="resetBtn" class="cta-button">Reset to Current Location</button>
+    <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 3bbb's. All rights reserved.
+  </footer>
+
+  <!-- Leaflet Map Script -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    let map;
+    const businesses = [
+      { name: "Bean & Brew Cafe", location: [49.3289, -123.1601] },
+      { name: "WestVan Home Decor", location: [49.3270, -123.1677] },
+      { name: "North Shore Wellness Co.", location: [49.3302, -123.1555] },
+      { name: "Organic Roots Grocery", location: [49.3258, -123.1599] },
+      { name: "Pottery Studio", location: [49.3245, -123.1623] }
+    ];
+
+    function initMap(lat = 49.3289, lng = -123.1601) {
+      if (map) map.remove(); // Reset if map already exists
+      map = L.map('map').setView([lat, lng], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      businesses.forEach((biz) => {
+        L.marker(biz.location)
+          .addTo(map)
+          .bindPopup(`<strong>${biz.name}</strong>`);
+      });
+    }
+
+    // Initial load
+    initMap();
+
+    // Reset to geolocation
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            initMap(latitude, longitude);
+          },
+          () => {
+            alert("Location access denied. Using default location.");
+            initMap();
+          }
+        );
+      } else {
+        alert("Geolocation not supported.");
+        initMap();
+      }
+    });
+  </script>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+  
+      // Simulate known business pages
+      const pages = {
+        "bean & brew cafe": "beanbrew.html",
+        "westvan home decor": "westvanhome.html",
+        "north shore wellness co.": "northshore.html",
+        "organic roots grocery": "organicroots.html",
+        "pottery studio": "potterystudio.html"
+      };
+  
+      const page = pages[query];
+      if (page) {
+        window.location.href = page;
+      } else {
+        alert("Business not found. Please try a known one.");
+      }
+    });
+    const user = localStorage.getItem('userName');
+if (user) {
+  const loginBtn = document.querySelector('.login-button');
+  if (loginBtn) {
+    loginBtn.innerText = `Hi, ${user}`;
+    loginBtn.style.border = 'none';
+    loginBtn.style.cursor = 'default';
+  }
+}
+
+  </script>
+  </body>
+</html
